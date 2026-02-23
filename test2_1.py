@@ -144,12 +144,13 @@ wait = WebDriverWait(driver, 15)
 driver.get('https://weverse.io')
 
 ################### 중복 가입이 안되기 때문에, 해당 부분 변경 필요 ###################
-id = 'winerik0421@gmail.com'
-pw = 'h2112626@!'
+# 코드 테스트 진행시에는 아래 데이터를 하드 코딩하여 진행하였습니다.
+u_id = input('이메일 입력 : ')
+u_pw = input('패스워드 입력 : ')
 ###########################################################################
 target_url = 'https://global.apis.naver.com/weverse/wevweb/users/v1.0/users/me'
 
-weverse(id,pw)
+weverse(u_id,u_pw)
 
 driver.refresh()
 time.sleep(2)
@@ -171,6 +172,6 @@ else:
     print("STATUS:", r.status_code)
     data = r.json()
     wid = data["wid"]
-    print("id :",id,"\nPW :",pw,"\nwid :",wid)
+    print("id :",u_id,"\nPW :",u_pw,"\nwid :",wid)
 
 driver.quit()
